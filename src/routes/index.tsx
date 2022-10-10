@@ -4,7 +4,6 @@ import { useState, useLayoutEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Login from "../screens/Login";
 import Register from "../screens/Register";
-import Home from "./bottomTab";
 import TopTabNav from "./topTab";
 
 export default function Routes() {
@@ -39,7 +38,7 @@ export default function Routes() {
         />
         <Stack.Screen
           name="Home"
-          component={Home}
+          component={TopTabNav}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

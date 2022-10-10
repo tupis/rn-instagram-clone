@@ -1,14 +1,14 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Feed from "../../screens/Feed";
 import Perfil from "../../screens/Perfil";
-import TopTabNav from "../topTab";
 
 export default function Home() {
   const Tab = createBottomTabNavigator();
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Feed"
-        component={TopTabNav}
+        name="Home"
+        component={Feed}
         options={{ headerShown: false }}
       />
       <Tab.Screen
