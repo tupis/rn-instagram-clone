@@ -1,6 +1,7 @@
-import { Text, View, StyleSheet, Button, TouchableOpacity } from "react-native";
+import { Text, View, Button, TouchableOpacity } from "react-native";
 import { Camera, CameraType } from "expo-camera";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { styles } from "./styles";
 
 export default function CamStory() {
   const [type, setType] = useState(CameraType.back);
@@ -40,29 +41,3 @@ export default function CamStory() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-  },
-  camera: {
-    flex: 1,
-  },
-  buttonContainer: {
-    flex: 1,
-    flexDirection: "row",
-    backgroundColor: "transparent",
-    margin: 64,
-  },
-  button: {
-    flex: 1,
-    alignSelf: "flex-end",
-    alignItems: "center",
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "white",
-  },
-});
