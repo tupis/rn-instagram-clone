@@ -3,13 +3,12 @@ import {
   View,
   Button,
   TouchableOpacity,
-  SafeAreaView,
   Modal,
   Image,
 } from "react-native";
 import { Camera, CameraType } from "expo-camera";
 import { useState, useRef } from "react";
-import { styles } from "./styles";
+import { Container, styles, TakePicture, TakePictureInside } from "./styles";
 
 export default function CamStory() {
   const camRef = useRef<any>(null);
@@ -49,18 +48,17 @@ export default function CamStory() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Camera style={styles.camera} type={type} ref={camRef}>
+    <Container>
+      <Camera style={{ flex: 1 }} type={type} ref={camRef}>
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.button} onPress={toggleCameraType}>
             <Text style={styles.text}>Flip Camera</Text>
           </TouchableOpacity>
         </View>
+        <TakePicture onPress={takePicture}>
+          <TakePictureInside />
+        </TakePicture>
       </Camera>
-
-      <TouchableOpacity onPress={takePicture} style={{ height: 100 }}>
-        <Text style={{ color: "white", alignSelf: "center" }}>TakePicture</Text>
-      </TouchableOpacity>
 
       {capturedPhoto && (
         <Modal animationType="slide" transparent={false} visible={open}>
@@ -85,6 +83,6 @@ export default function CamStory() {
           </View>
         </Modal>
       )}
-    </SafeAreaView>
+    </Container>
   );
 }

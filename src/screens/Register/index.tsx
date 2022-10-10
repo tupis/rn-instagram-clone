@@ -1,14 +1,16 @@
 import { Cookie_400Regular, useFonts } from "@expo-google-fonts/cookie";
-import {
-  Text,
-  SafeAreaView,
-  TouchableOpacity,
-  TextInput,
-  View,
-} from "react-native";
 import { useForm, Controller } from "react-hook-form";
-import { dark } from "./styles";
-import { light } from "./styles";
+import Login from "../Login";
+import {
+  Container,
+  Logo,
+  Input,
+  Button,
+  ButtonText,
+  LoginArea,
+  LoginButton,
+  LoginText,
+} from "./styles";
 
 export default function Register(props: any) {
   const {
@@ -25,102 +27,90 @@ export default function Register(props: any) {
   const onSubmit = (data: any) => console.log(data);
 
   return (
-    <>
-      <SafeAreaView style={dark.container}>
-        <Text style={dark.logo}>Instagram</Text>
+    <Container>
+      <Logo>Instagram</Logo>
 
-        <Controller
-          control={control}
-          rules={{
-            required: true,
-          }}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <TextInput
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              style={dark.input}
-              placeholder="Insira seu username"
-              placeholderTextColor="#e5e4e4"
-            />
-          )}
-          name="username"
-        />
-        {errors.email && <Text>This is required.</Text>}
+      <Controller
+        control={control}
+        rules={{
+          required: true,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <Input
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            placeholder="Insira seu username"
+            placeholderTextColor="#e5e4e4"
+          />
+        )}
+        name="username"
+      />
 
-        <Controller
-          control={control}
-          rules={{
-            required: true,
-          }}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <TextInput
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              style={dark.input}
-              placeholder="Insira seu email"
-              placeholderTextColor="#e5e4e4"
-            />
-          )}
-          name="email"
-        />
-        <Controller
-          control={control}
-          rules={{
-            required: true,
-          }}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <TextInput
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              style={dark.input}
-              placeholder="Senha"
-              placeholderTextColor="#e5e4e4"
-            />
-          )}
-          name="password"
-        />
-        <Controller
-          control={control}
-          rules={{
-            required: true,
-          }}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <TextInput
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              style={dark.input}
-              placeholder="Confirme a senha"
-              placeholderTextColor="#e5e4e4"
-            />
-          )}
-          name="confirmPassword"
-        />
-        {errors.password && <Text>This is required.</Text>}
+      <Controller
+        control={control}
+        rules={{
+          required: true,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <Input
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            placeholder="Insira seu email"
+            placeholderTextColor="#e5e4e4"
+          />
+        )}
+        name="email"
+      />
+      <Controller
+        control={control}
+        rules={{
+          required: true,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <Input
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            placeholder="Senha"
+            placeholderTextColor="#e5e4e4"
+          />
+        )}
+        name="password"
+      />
+      <Controller
+        control={control}
+        rules={{
+          required: true,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <Input
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            placeholder="Confirme a senha"
+            placeholderTextColor="#e5e4e4"
+          />
+        )}
+        name="confirmPassword"
+      />
 
-        <TouchableOpacity
-          // onPress={() => navigation.navigate("Home")}
-          onPress={handleSubmit(onSubmit)}
-          style={dark.button}
-        >
-          <Text style={dark.buttonText}>Registrar</Text>
-        </TouchableOpacity>
+      <Button
+        // onPress={() => navigation.navigate("Home")}
+        onPress={handleSubmit(onSubmit)}
+      >
+        <ButtonText>Registrar</ButtonText>
+      </Button>
 
-        <View style={dark.loginArea}>
-          <Text style={dark.loginTextArea}>
-            Ja tem conta ?{" "}
-            <Text
-              onPress={() => navigation.navigate("Login")}
-              style={dark.login}
-            >
-              Faça login
-            </Text>
-          </Text>
-        </View>
-      </SafeAreaView>
-    </>
+      <LoginArea>
+        <LoginText>
+          Ja tem conta ?{" "}
+          <LoginButton onPress={() => navigation.navigate("Login")}>
+            Faça login
+          </LoginButton>
+        </LoginText>
+      </LoginArea>
+    </Container>
   );
 }

@@ -1,62 +1,59 @@
-import { StyleSheet } from "react-native";
+import styled from "styled-components/native";
 
-export const dark = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#121213",
-    marginTop: -120,
-  },
-  logo: {
-    color: "white",
-    fontFamily: "Cookie_400Regular",
-    fontSize: 50,
-    marginBottom: 50,
-  },
-  input: {
-    backgroundColor: "#333333",
-    borderRadius: 7,
-    color: "white",
-    width: "80%",
-    marginBottom: 10,
-    padding: 7,
-  },
-  button: {
-    backgroundColor: "#0198fd",
-    alignItems: "center",
-    padding: 10,
-    width: "80%",
-    borderRadius: 7,
-    marginTop: 10,
-  },
-  buttonText: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: "white",
-  },
-  loginArea: {
-    borderTopWidth: 2,
-    width: "100%",
-    borderTopColor: "white",
-    alignItems: "center",
-    position: "absolute",
-    height: 50,
-    justifyContent: "center",
-    bottom: 0,
-  },
-  loginTextArea: {
-    color: "white",
-  },
-  login: {
-    color: "#0098ff",
-  },
-});
+export const Container = styled.SafeAreaView`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #121213;
+  margin-top: -120px;
+`;
 
-export const light = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
+export const Logo = styled.Text`
+  color: white;
+  font-family: "Cookie_400Regular";
+  font-size: 50px;
+  margin-bottom: 50px;
+`;
+
+export const Input = styled.TextInput`
+  background-color: #333333;
+  border-radius: 7px;
+  color: white;
+  width: 80%;
+  margin-bottom: 20px;
+  padding: 7px;
+`;
+
+export const Button = styled.TouchableOpacity`
+  width: 80%;
+  background-color: #0198fd;
+  align-items: center;
+  padding: 10px;
+  border-radius: 7px;
+  margin-top: 10px;
+`;
+
+export const ButtonText = styled.Text`
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+`;
+
+export const LoginArea = styled.View`
+  border-top-width: 2px;
+  border-top-color: white;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+`;
+
+export const LoginText = styled.Text`
+  color: white;
+`;
+
+export const LoginButton = styled.Text`
+  color: #0098ff;
+`;
