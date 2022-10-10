@@ -5,10 +5,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Login from "../screens/Login";
 import Register from "../screens/Register";
 import Home from "./bottomTab";
+import TopTabNav from "./topTab";
 
 export default function Routes() {
   const Stack = createNativeStackNavigator();
-  const [isLogged, setIsLogged] = useState<boolean>(false);
+  const [isLogged, setIsLogged] = useState<boolean>(true);
 
   const getToken = async () => {
     const token = await AsyncStorage.getItem("token");
