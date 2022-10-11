@@ -29,12 +29,14 @@ export default function Header(props: any) {
   return (
     <Container>
       <CameraIcon
+        style={{ marginLeft: 10 }}
         name="camera"
         size={30}
         onPress={() => navigation.navigate("CamStory")}
       />
       <Logo>Instagram</Logo>
       <ChatIcon
+        style={{ marginRight: 10 }}
         name="ios-chatbubble-ellipses-outline"
         size={30}
         onPress={() => navigation.navigate("Chat")}
