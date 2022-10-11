@@ -55,8 +55,8 @@ export default function CamStory() {
             <Text style={styles.text}>Flip Camera</Text>
           </TouchableOpacity>
         </View>
-        <TakePicture onPress={takePicture}>
-          <TakePictureInside />
+        <TakePicture>
+          <TakePictureInside onPress={takePicture} />
         </TakePicture>
       </Camera>
 
