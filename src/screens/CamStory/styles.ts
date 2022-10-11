@@ -7,7 +7,7 @@ export const Container = styled.View`
   background-color: black;
 `;
 
-export const TakePicture = styled.TouchableOpacity`
+export const TakePicture = styled.View`
   border: 5px white;
   height: 85px;
   width: 85px;
