@@ -2,7 +2,7 @@ import { Text, Button } from "react-native";
 import Header from "../../components/Header";
 import { Container } from "./styles";
 
-export default function Feed(props: any) {
+export default function Feed(props: any): JSX.Element {
   const { navigation } = props;
 
   return (

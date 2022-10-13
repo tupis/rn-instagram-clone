@@ -11,7 +11,7 @@ import {
   RegisterButton,
 } from "./styles";
 
-export default function Login(props: any) {
+export default function Login(props: any): JSX.Element {
   const { navigation } = props;
   const {
     control,
@@ -20,7 +20,7 @@ export default function Login(props: any) {
   } = useForm();
   const [fontsLoaded] = useFonts({ Cookie_400Regular });
   if (!fontsLoaded) {
-    return null;
+    return <></>;
   }
 
   const onSubmit = (data: any) => console.log(data);
