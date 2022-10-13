@@ -3,7 +3,7 @@ import { styles } from "./styles";
 import { useIsFocused, useNavigation } from "@react-navigation/native";
 import { useEffect } from "react";
 
-export default function Perfil() {
+export default function Perfil(): JSX.Element {
   const navigation: any = useNavigation<any>();
 
   const isFocused: boolean = useIsFocused();
