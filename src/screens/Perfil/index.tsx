@@ -8,16 +8,12 @@ export default function Perfil() {
 
   const isFocused: boolean = useIsFocused();
 
-  const blockSwipe: () => Promise<void> = async (): Promise<void> => {
-    await navigation.getParent().setOptions({ swipeEnabled: false });
-  };
-
-  const unblockSwipe: () => Promise<void> = async (): Promise<void> => {
-    await navigation.getParent().setOptions({ swipeEnabled: true });
+  const blockOrUnblockSwipe: () => Promise<void> = async (): Promise<void> => {
+    await navigation.getParent().setOptions({ swipeEnabled: !isFocused });
   };
 
   useEffect(() => {
-    isFocused ? blockSwipe() : unblockSwipe();
+    blockOrUnblockSwipe();
   }, [isFocused]);
 
   return (

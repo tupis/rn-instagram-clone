@@ -5,7 +5,7 @@ import Home from "../bottomTab";
 
 const Tab = createMaterialTopTabNavigator();
 
-export default function TopTabNav(props: any) {
+export default function TopTabNav(props: any): JSX.Element {
   const { navigation } = props;
   return (
     <Tab.Navigator

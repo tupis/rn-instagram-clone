@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Feed from "../../screens/Feed";
 import Perfil from "../../screens/Perfil";
 
-export default function Home() {
+export default function Home(): JSX.Element {
   const Tab = createBottomTabNavigator();
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>

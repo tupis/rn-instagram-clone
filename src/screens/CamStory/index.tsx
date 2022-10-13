@@ -10,7 +10,7 @@ import { Camera, CameraType } from "expo-camera";
 import { useState, useRef } from "react";
 import { Container, styles, TakePicture, TakePictureInside } from "./styles";
 
-export default function CamStory() {
+export default function CamStory(): JSX.Element {
   const camRef = useRef<any>(null);
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();

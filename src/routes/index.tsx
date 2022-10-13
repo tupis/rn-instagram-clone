@@ -6,7 +6,7 @@ import Login from "../screens/Login";
 import Register from "../screens/Register";
 import TopTabNav from "./topTab";
 
-export default function Routes() {
+export default function Routes(): JSX.Element {
   const Stack = createNativeStackNavigator();
   const [isLogged, setIsLogged] = useState<boolean>(true);
 

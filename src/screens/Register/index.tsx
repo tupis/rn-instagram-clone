@@ -12,7 +12,7 @@ import {
   LoginText,
 } from "./styles";
 
-export default function Register(props: any) {
+export default function Register(props: any): JSX.Element {
   const {
     control,
     handleSubmit,
@@ -21,7 +21,7 @@ export default function Register(props: any) {
   const { navigation } = props;
   const [fontsLoaded] = useFonts({ Cookie_400Regular });
   if (!fontsLoaded) {
-    return null;
+    return <></>;
   }
 
   const onSubmit = (data: any) => console.log(data);
