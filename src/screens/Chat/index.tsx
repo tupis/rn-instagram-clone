@@ -1,7 +1,7 @@
 import { Text } from "react-native";
 import { Container } from "./styles";
 
-export default function Chat(props: any) {
+export default function Chat(props: any): JSX.Element {
   const { navigation } = props;
 
   return (
