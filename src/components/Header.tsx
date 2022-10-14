@@ -3,7 +3,7 @@ import ChatIcon from "react-native-vector-icons/Ionicons";
 import { Cookie_400Regular, useFonts } from "@expo-google-fonts/cookie";
 import styled from "styled-components/native";
 
-const Container = styled.SafeAreaView`
+const Container = styled.View`
   /* paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0 */
   margin-top: 25px;
   width: 100%;
@@ -13,6 +13,8 @@ const Container = styled.SafeAreaView`
   padding: 10px;
   position: absolute;
   top: 0;
+  z-index: 1000;
+  background-color: white;
 `;
 
 const Logo = styled.Text`
