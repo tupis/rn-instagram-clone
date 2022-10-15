@@ -9,9 +9,8 @@ interface PropsHeader {
 
 const Container = styled.View`
   width: 100%;
-  height: 60px;
   flex-direction: row;
-  padding: 20px 10px;
+  padding: 5px 10px;
   align-items: center;
   justify-content: space-between;
 `;
