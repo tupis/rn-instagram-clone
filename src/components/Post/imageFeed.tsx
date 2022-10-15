@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components/native";
-import { Image, TouchableHighlight, View } from "react-native";
+import { Image } from "react-native";
 import { IPost } from "./index";
 import HeartVector from "react-native-vector-icons/AntDesign";
+import { MotiView } from "moti";
 
 interface PropsFeed {
   post: IPost;
@@ -19,6 +20,14 @@ const Container = styled.View`
 const ImagePost = styled(Image)`
   width: 100%;
   height: undefined;
+`;
+
+const AnimateView = styled(MotiView)`
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 `;
 
 const Heart = styled(HeartVector)`
@@ -72,7 +81,24 @@ export default function ImageFeed(props: PropsFeed): JSX.Element {
           aspectRatio: aspectRatio[0] / aspectRatio[1],
         }}
       />
-      {isLiked && <Heart name="heart" />}
+      {isLiked && (
+        <AnimateView
+          from={{
+            opacity: 1,
+            scale: 0.8,
+          }}
+          animate={{
+            opacity: 0,
+            scale: 1.5,
+          }}
+          transition={{
+            type: "timing",
+            duration: 350,
+          }}
+        >
+          <Heart name="heart" />
+        </AnimateView>
+      )}
     </Container>
   );
 }
