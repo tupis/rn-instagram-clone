@@ -7,8 +7,10 @@ import { MotiView } from "moti";
 
 interface PropsFeed {
   post: IPost;
-  liked: [boolean, Function];
+  liked: [isLiked: boolean, setIsLiked: Function];
 }
+
+const Wrapper = styled.TouchableWithoutFeedback``;
 
 const Container = styled.View`
   width: 100%;
@@ -17,7 +19,7 @@ const Container = styled.View`
   align-items: center;
 `;
 
-const ImagePost = styled(Image)`
+const ImagePost = styled.Image`
   width: 100%;
   height: undefined;
 `;
@@ -38,8 +40,9 @@ const Heart = styled(HeartVector)`
 
 export default function ImageFeed(props: PropsFeed): JSX.Element {
   const { post, liked } = props;
-  const [isLiked] = liked;
+  const [isLiked, setIsLiked] = liked;
   const [aspectRatio, setAspectRatio] = useState<number[]>([1, 1]);
+  const [lastTap, setLastTap] = useState<any>(null);
 
   function calculateAspectRatio(width: number, height: number): number[] {
     function gcd(x: number, y: number): number {
@@ -67,38 +70,55 @@ export default function ImageFeed(props: PropsFeed): JSX.Element {
     });
   }
 
+  function reloadLike(): void {
+    setIsLiked(false);
+    setTimeout(() => {
+      setIsLiked(true);
+    }, 1);
+  }
+
+  function doubleTap(): void {
+    const now: any = Date.now();
+    const doublePressDelay: any = 400;
+    if (lastTap && now - lastTap < doublePressDelay) {
+      isLiked ? reloadLike() : setIsLiked(true);
+    } else {
+      setLastTap(now);
+    }
+  }
+
   useEffect(() => {
     getSizeImage();
   }, [post]);
 
-  useEffect(() => {}, [isLiked]);
-
   return (
-    <Container>
-      <ImagePost
-        source={{ uri: post.feedPic }}
-        style={{
-          aspectRatio: aspectRatio[0] / aspectRatio[1],
-        }}
-      />
-      {isLiked && (
-        <AnimateView
-          from={{
-            opacity: 1,
-            scale: 0.8,
+    <Wrapper onPress={doubleTap}>
+      <Container>
+        <ImagePost
+          source={{ uri: post.feedPic }}
+          style={{
+            aspectRatio: aspectRatio[0] / aspectRatio[1],
           }}
-          animate={{
-            opacity: 0,
-            scale: 1.5,
-          }}
-          transition={{
-            type: "timing",
-            duration: 350,
-          }}
-        >
-          <Heart name="heart" />
-        </AnimateView>
-      )}
-    </Container>
+        />
+        {isLiked && (
+          <AnimateView
+            from={{
+              opacity: 1,
+              scale: 0.8,
+            }}
+            animate={{
+              opacity: 0,
+              scale: 1.5,
+            }}
+            transition={{
+              type: "timing",
+              duration: 350,
+            }}
+          >
+            <Heart name="heart" />
+          </AnimateView>
+        )}
+      </Container>
+    </Wrapper>
   );
 }
