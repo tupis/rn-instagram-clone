@@ -18,7 +18,7 @@ export default function Home(): JSX.Element {
             iconName = focused ? "person" : "person-outline";
           }
 
-          focused ? (size += 5) : "";
+          focused && (size += 4);
 
           color = "black";
 
