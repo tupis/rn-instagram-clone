@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 import styled from "styled-components/native";
+import FlipCameraVector from "react-native-vector-icons/AntDesign";
+import { Camera as CameraVector } from "expo-camera";
 
 export const Container = styled.View`
   flex: 1;
@@ -7,7 +9,31 @@ export const Container = styled.View`
   background-color: black;
 `;
 
+export const Camera = styled(CameraVector)`
+  flex: 1;
+  border-radius: 200px;
+`;
+
+export const WrapperTouchable = styled.TouchableWithoutFeedback``;
+
+export const Bottom = styled.View`
+  width: 100%;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 0 20px;
+`;
+
+export const FlipCamera = styled(FlipCameraVector)`
+  background-color: gray;
+  border-radius: 200px;
+  font-size: 40px;
+`;
+
 export const TakePicture = styled.View`
+  position: absolute;
+  bottom: 0;
   border: 5px white;
   height: 85px;
   width: 85px;
@@ -23,27 +49,3 @@ export const TakePictureInside = styled.TouchableOpacity`
   border-radius: 200px;
   margin: auto;
 `;
-
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: "black",
-  },
-  buttonContainer: {
-    flex: 1,
-    flexDirection: "row",
-    backgroundColor: "transparent",
-    margin: 64,
-  },
-  button: {
-    flex: 1,
-    alignSelf: "flex-end",
-    alignItems: "center",
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "white",
-  },
-});
