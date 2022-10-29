@@ -6,9 +6,17 @@ import {
   Modal,
   Image,
 } from "react-native";
-import { Camera, CameraType } from "expo-camera";
+import { CameraType } from "expo-camera";
 import { useState, useRef } from "react";
-import { Container, styles, TakePicture, TakePictureInside } from "./styles";
+import {
+  Bottom,
+  Camera,
+  Container,
+  FlipCamera,
+  TakePicture,
+  TakePictureInside,
+  WrapperTouchable,
+} from "./styles";
 
 export default function CamStory(): JSX.Element {
   const camRef = useRef<any>(null);
@@ -23,10 +31,9 @@ export default function CamStory(): JSX.Element {
 
   if (!permission.granted) {
     return (
-      <View style={styles.container}>
+      <View>
         <Text style={{ textAlign: "center" }}>
-          {" "}
-          =( precisamos da permissão para da sua câmera{" "}
+          =( precisamos da permissão para da sua câmera
         </Text>
         <Button onPress={requestPermission} title="grant permission" />
       </View>
@@ -49,16 +56,17 @@ export default function CamStory(): JSX.Element {
 
   return (
     <Container>
-      <Camera style={{ flex: 1 }} type={type} ref={camRef}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={toggleCameraType}>
-            <Text style={styles.text}>Flip Camera</Text>
-          </TouchableOpacity>
-        </View>
+      <Camera type={type} ref={camRef}>
         <TakePicture>
           <TakePictureInside onPress={takePicture} />
         </TakePicture>
       </Camera>
+
+      <Bottom>
+        <WrapperTouchable onPress={toggleCameraType}>
+          <FlipCamera name="retweet" color="white" />
+        </WrapperTouchable>
+      </Bottom>
 
       {capturedPhoto && (
         <Modal animationType="slide" transparent={false} visible={open}>
