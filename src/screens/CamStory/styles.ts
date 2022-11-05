@@ -28,7 +28,8 @@ export const Bottom = styled.View`
 export const FlipCamera = styled(FlipCameraVector)`
   background-color: gray;
   border-radius: 200px;
-  font-size: 40px;
+  font-size: 30px;
+  padding: 10px;
 `;
 
 export const TakePicture = styled.View`
